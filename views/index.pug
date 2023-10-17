@@ -1,0 +1,15 @@
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/public/css/index.css')
+    script.
+      function handleCardClick(countryId) {
+          window.location.href = `/country/${countryId}`;
+      }
+  body
+    h1= message
+    .flag-container
+      each country in countries
+        .flag-card(onclick=`handleCardClick('${country.id}')`)
+          h2= country.name.common
+          img(src=country.flags.png alt=`${country.flags.png} Flag`)

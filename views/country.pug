@@ -1,0 +1,22 @@
+html
+  head
+    title Country Detail
+    link(rel='stylesheet', href='/public/css/country.css')
+  body
+    - const formattedNumber = (number) => number.toLocaleString('en-US', { style: 'decimal' });
+
+    h1= country.name.common
+    .country-info
+      img.flag(src=country.flags.png alt=`${country.flags.png} Flag`)
+      p 
+        strong Capital: 
+        | #{country.capital.join(', ')}
+      p 
+        strong Region: 
+        | #{country.region}
+      p 
+        strong Subregion: 
+        | #{country.subregion}
+      p 
+        strong Population: 
+        | #{formattedNumber(country.population)}
